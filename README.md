@@ -1,2 +1,2 @@
-# simple-template-spring-reactive
+# simple-template-spring
 ### under development
