@@ -1,0 +1,30 @@
+----liquibase formatted sql
+----changeset deal:nomeDaApi-Sprint logicalFilePath:grants_01
+----comment: Acesso concedido para [BancoDeDados] nas tabelas criadas na sprint s3_mandatorio
+--
+--USE [BancoDeDados]
+--GO
+----
+--ALTER ROLE [db_datareader] DROP MEMBER [usuarioBancoDeDados]
+--ALTER ROLE [db_datawriter] DROP MEMBER [usuarioBancoDeDados]
+--GO
+----
+--BEGIN TRY
+-- CREATE ROLE [usuarioBancoDeDadosRole]
+--END TRY
+--BEGIN CATCH
+--
+--END CATCH;
+--
+--GO
+----
+--ALTER ROLE [usuarioBancoDeDadosRole] ADD MEMBER [usuarioBancoDeDados]
+--GO
+----
+--GRANT INSERT ON BancoDeDados.schemaDoBanco.tabela TO [usuarioBancoDeDadosRole]
+--GRANT UPDATE ON BancoDeDados.schemaDoBanco.tabela TO [usuarioBancoDeDadosRole]
+--GRANT DELETE ON BancoDeDados.schemaDoBanco.tabela TO [usuarioBancoDeDadosRole]
+--GRANT SELECT ON BancoDeDados.schemaDoBanco.tabela TO [usuarioBancoDeDadosRole]
+----
+--GO
+----

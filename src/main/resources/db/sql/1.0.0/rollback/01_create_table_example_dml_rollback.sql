@@ -1,0 +1,5 @@
+----liquibase formatted sql
+----changeset deal:nomeDaApi-Sprint_DML logicalFilePath:01_create_table_example_dml_rollback
+----comment: Rollback da tabela exemplo
+--IF NOT EXISTS (SELECT * FROM sysobjects WHERE name='example' and xtype='U')
+--DROP TABLE example
